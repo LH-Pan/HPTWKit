@@ -24,5 +24,6 @@ let package = Package(
         .testTarget(
             name: "HPTWKitTests",
             dependencies: ["HPTWKit"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
