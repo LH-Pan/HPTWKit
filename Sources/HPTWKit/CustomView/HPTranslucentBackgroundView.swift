@@ -1,13 +1,13 @@
 import UIKit
 
-public class TranslucentBackgroundView: UIView {
+open class HPTranslucentBackgroundView: UIView {
     
     // MARK: - Private Variable Declare
-    private var color: UIColor? = .black {
+    open override var backgroundColor: UIColor? {
         
         didSet {
             
-            setup()
+            self.backgroundColor = backgroundColor
         }
     }
     
@@ -23,25 +23,25 @@ public class TranslucentBackgroundView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setup()
+        backgroundColor = .black
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        setup()
+        backgroundColor = .black
     }
     
     // MARK: - Private Method
     private func setup() {
         
-        backgroundColor = color?.withAlphaComponent(colorAlphaComponent)
+        backgroundColor = backgroundColor?.withAlphaComponent(colorAlphaComponent)
     }
     
     // MARK: - Public Method
     public func setupColor(color: UIColor?) {
         
-        self.color = color
+        self.backgroundColor = color
     }
     
     public func setupAlphaComponent(alphaComponent: CGFloat) {
